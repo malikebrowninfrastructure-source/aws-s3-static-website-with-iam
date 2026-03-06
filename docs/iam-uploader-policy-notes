@@ -1,1 +1,15 @@
+# IAM Upload Policy Notes
 
+To allow developers to upload website assets without granting excessive permissions, a least-privilege IAM policy was created.
+
+The policy allows:
+
+Action: s3:PutObject
+
+This enables file uploads to the bucket but prevents:
+
+- deleting objects
+- modifying bucket policies
+- changing permissions
+
+This pattern is commonly used in production environments where applications or CI/CD pipelines upload assets to S3.
